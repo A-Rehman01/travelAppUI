@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import COLORS from '../../consts/colors';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 const OnBoardScreen = ({navigation}) => {
   return (
