@@ -5,41 +5,46 @@ import {
   StyleSheet,
   ImageBackground,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../consts/colors';
 const {width} = Dimensions.get('screen');
-const Cards = ({place}) => {
+const Cards = ({place, navigation}) => {
   return (
-    <ImageBackground source={place.image} style={styles.cardImage}>
-      <Text
-        style={{
-          color: COLORS.white,
-          fontSize: 20,
-          marginTop: 10,
-          fontWeight: 'bold',
-        }}>
-        {place.name}
-      </Text>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'space-between',
-          alignItems: 'flex-end',
-          flexDirection: 'row',
-        }}>
-        <View style={{flexDirection: 'row'}}>
-          <Icon name="place" size={20} color={COLORS.white} />
-          <Text style={{marginLeft: 5, color: COLORS.white}}>
-            {place.location}
-          </Text>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate('DetailsScreen', place)}>
+      <ImageBackground source={place.image} style={styles.cardImage}>
+        <Text
+          style={{
+            color: COLORS.white,
+            fontSize: 20,
+            marginTop: 10,
+            fontWeight: 'bold',
+          }}>
+          {place.name}
+        </Text>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            flexDirection: 'row',
+          }}>
+          <View style={{flexDirection: 'row'}}>
+            <Icon name="place" size={20} color={COLORS.white} />
+            <Text style={{marginLeft: 5, color: COLORS.white}}>
+              {place.location}
+            </Text>
+          </View>
+          <View style={{flexDirection: 'row'}}>
+            <Icon name="star" size={20} color={COLORS.white} />
+            <Text style={{marginLeft: 5, color: COLORS.white}}>5.0 </Text>
+          </View>
         </View>
-        <View style={{flexDirection: 'row'}}>
-          <Icon name="star" size={20} color={COLORS.white} />
-          <Text style={{marginLeft: 5, color: COLORS.white}}>5.0 </Text>
-        </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </TouchableOpacity>
   );
 };
 

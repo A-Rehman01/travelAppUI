@@ -57,7 +57,9 @@ const HomeScreen = ({navigation}) => {
             horizontal
             showsHorizontalScrollIndicator={false}
             data={places}
-            renderItem={({item}) => <Cards place={item} />}
+            renderItem={({item}) => (
+              <Cards place={item} navigation={navigation} />
+            )}
           />
           <Text style={styles.sectionTitle}>Recommended</Text>
           <FlatList
